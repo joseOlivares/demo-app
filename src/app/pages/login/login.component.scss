@@ -1,0 +1,29 @@
+.img-column {
+    background-image: url('/assets/img/background.jpg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.login-form {
+    max-width: 100%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    min-width: 60%;
+}
+
+@media (max-width: 768px) {
+    .login-form {
+        min-width: 90%;
+    }
+}
+
+
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
