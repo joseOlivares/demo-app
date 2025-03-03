@@ -16,7 +16,11 @@ export class LoginService {
 
 
   authenticate(loginForm: FormGroup) {
+    loginForm.controls['grant_type'].setValue(this.grantType);
     console.log('LoginService: authenticate',loginForm.value);
+    
+
+
       const secrets=`${environment.secretUser}:${environment.secretPassword}`;
       //const headers = new HttpHeaders({Authorization:`Basic ${btoa(secrets)}`});
       const headers = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
