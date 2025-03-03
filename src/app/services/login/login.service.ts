@@ -30,5 +30,3 @@ export class LoginService {
     return false; // Por ejemplo, si el token es "1234"
   }
 }
-
-+
