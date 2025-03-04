@@ -1,0 +1,97 @@
+
+<div class="container mt-5 ">
+    <h2 class="mb-3">Create Customer</h2>
+    <form [formGroup]="formCustomer" class="form-customer">
+      <!-- Campo Correo -->
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="correo" formControlName="correo">
+        @if(formCustomer.get('correo')?.invalid && formCustomer.get('correo')?.touched){
+          <div class="text-danger">
+            El correo es obligatorio y debe ser válido.
+          </div>
+        }
+      </div>
+  
+      <!-- Campo Nombres -->
+      <div class="mb-3">
+        <label for="nombres" class="form-label">Nombres</label>
+        <input type="text" class="form-control" id="nombres" formControlName="nombres">
+        @if(formCustomer.get('nombres')?.invalid && formCustomer.get('nombres')?.touched){
+          <div class="text-danger">
+            Los nombres son obligatorios.
+          </div>
+        }
+      </div>
+  
+      <!-- Campo Apellidos -->
+      <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" id="apellidos" formControlName="apellidos">
+        @if(formCustomer.get('apellidos')?.invalid && formCustomer.get('apellidos')?.touched){
+          <div class="text-danger">
+            Los apellidos son obligatorios.
+          </div>
+        }
+      </div>
+      
+  
+      <!-- Campo Razón Social -->
+      <div class="mb-3">
+        <label for="razonSocial" class="form-label">Razón Social</label>
+        <input type="text" class="form-control" id="razonSocial" formControlName="razonSocial">
+        @if(formCustomer.get('razonSocial')?.invalid && formCustomer.get('razonSocial')?.touched){
+          <div class="text-danger">
+            La razón social es obligatoria.
+          </div>
+        }
+      </div>
+  
+      <!-- Campo ID Empresa -->
+      <div class="mb-3">
+        <label for="iDEmpresa" class="form-label">ID Empresa</label>
+        <input type="text" class="form-control" id="iDEmpresa" formControlName="iDEmpresa">
+        @if(formCustomer.get('iDEmpresa')?.invalid && formCustomer.get('iDEmpresa')?.touched){
+          <div class="text-danger">
+            El ID de la empresa es obligatorio.
+          </div>
+        }
+      </div>
+  
+      <!-- Campo Dirección -->
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" class="form-control" id="direccion" formControlName="direccion">
+        @if(formCustomer.get('direccion')?.invalid && formCustomer.get('direccion')?.touched){
+          <div class="text-danger">
+            La dirección es obligatoria.
+          </div>
+        }
+      </div>
+  
+      <!-- Campo Teléfono -->
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="telefono" formControlName="telefono">
+        @if(formCustomer.get('telefono')?.invalid && formCustomer.get('telefono')?.touched){
+          <div class="text-danger">
+            El teléfono es obligatorio
+          </div>
+        }
+      </div>
+  
+      <!-- Campo País -->
+      <div class="mb-3">
+        <label for="pais" class="form-label">País</label>
+        <input type="text" class="form-control" id="pais" formControlName="pais">
+        @if(formCustomer.get('pais')?.invalid && formCustomer.get('pais')?.touched){
+          <div class="text-danger">
+            El país es obligatorio.
+          </div>
+        }
+      </div>
+  
+      <!-- Botón de Enviar -->
+      <button type="button " class="btn btn-primary" [disabled]="formCustomer.invalid" (click)="createCustomer()">Create</button>
+    </form>
+  </div>

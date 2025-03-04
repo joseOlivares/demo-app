@@ -1,0 +1,9 @@
+.form-customer{
+    max-width: 60%;
+}
+
+@media (max-width: 768px) {
+    .form-customer{
+        max-width: 100%;
+    }
+}
