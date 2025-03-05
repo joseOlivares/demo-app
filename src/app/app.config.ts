@@ -13,6 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideKeycloakAngular(), // keycloak config
     provideZoneChangeDetection({ eventCoalescing: true }), 
     provideRouter(routes),
-    provideHttpClient( withFetch(), withInterceptors([includeBearerTokenInterceptor]) )
+    provideHttpClient( withFetch(), withInterceptors([includeBearerTokenInterceptor]) )//withInterceptors([includeBearerTokenInterceptor])  removido
    ]
 };

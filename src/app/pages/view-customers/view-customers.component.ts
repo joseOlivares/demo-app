@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CustomerService } from '../../services/customer/customer.service';
+import { Customer } from '../../types/customer';
 
 @Component({
   selector: 'app-view-customers',
@@ -8,4 +10,13 @@ import { Component } from '@angular/core';
 })
 export class ViewCustomersComponent {
 
+  customerService=inject(CustomerService);
+
+  customers:Customer[]=[];
+
+  ngOnInit(){
+    this.customerService.getCustomers().subscribe((data:Customer[])=>{
+      this.customers=data;
+    });
+  }
 }

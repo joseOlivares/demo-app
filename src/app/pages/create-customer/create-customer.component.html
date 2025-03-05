@@ -1,5 +1,6 @@
 
 <div class="container mt-5 ">
+  <div class="pb-5">
     <h2 class="mb-3">Create Customer</h2>
     <form [formGroup]="formCustomer" class="form-customer">
       <!-- Campo Correo -->
@@ -82,16 +83,23 @@
   
       <!-- Campo País -->
       <div class="mb-3">
-        <label for="pais" class="form-label">País</label>
+        <label for="pais" class="form-label"> Iniciales de País</label>
         <input type="text" class="form-control" id="pais" formControlName="pais">
         @if(formCustomer.get('pais')?.invalid && formCustomer.get('pais')?.touched){
           <div class="text-danger">
-            El país es obligatorio.
+            Las iniciales del país son obligatorias (Sólo 2 caracteres).
           </div>
         }
       </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <!-- Botón de Enviar -->
+        <button type="button " class="btn btn-primary px-md-5 btn-lg" [disabled]="formCustomer.invalid" (click)="createCustomer()">Create</button>
+      </div>
   
-      <!-- Botón de Enviar -->
-      <button type="button " class="btn btn-primary" [disabled]="formCustomer.invalid" (click)="createCustomer()">Create</button>
+
     </form>
   </div>
+   <app-toast #toastComponent [title]="toastTitle" [message]="toastMessage" [timeAgo]="toastTimeAgo" [duration]="toastDuration"
+    [textBg]="toastTextBg"></app-toast>
+</div>

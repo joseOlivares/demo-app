@@ -7,42 +7,41 @@ import {
     AutoRefreshTokenService,
     UserActivityService
   } from 'keycloak-angular';
+
+  import {environment} from '../../../environments/environment';
   
-  const localhostCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
-    urlPattern: /^(http:\/\/localhost:4200)(\/.*)?$/i
-  });
 
   const ssoCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
-    urlPattern: /^(https:\/\/sso-sescobar-dev.apps.rm3.7wse.p1.openshiftapps.com)(\/.*)?$/i
+    urlPattern: /^http:\/\/demo-pipeline-sescobar-dev\.apps\.rm3\.7wse\.p1\.openshiftapps\.com\/.*$/,
+    httpMethods: ['POST'],
   });
+
   
   export const provideKeycloakAngular = () =>
     provideKeycloak({
       config: {
-        realm: 'Test',
-        url: 'https://sso-sescobar-dev.apps.rm3.7wse.p1.openshiftapps.com/auth',
-        clientId: 'AngularApp'
+        realm: environment.realm,
+        url: environment.url,
+        clientId: environment.clientId
       },
       initOptions: {
         onLoad: 'check-sso',
         silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
         redirectUri: window.location.origin + '/',
+        checkLoginIframe: false
       },
       features: [
         withAutoRefreshToken({
           onInactivityTimeout: 'logout',
-          sessionTimeout: 300000,
+          sessionTimeout: 60000,
         }),
       ],
       providers: [
-        /**/
         AutoRefreshTokenService,
         UserActivityService,
         {
           provide: INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG,
-          useValue: [localhostCondition, ssoCondition],
-          multi: true
+          useValue: [ssoCondition],
         }
-          
       ]
     });

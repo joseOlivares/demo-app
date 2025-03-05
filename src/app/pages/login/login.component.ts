@@ -18,7 +18,7 @@ export class LoginComponent {
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
     grant_type: [environment.grantType],
-    client_id: [environment.client_id]
+    client_id: [environment.clientId]
   });
 
   private loginService = inject(LoginService);

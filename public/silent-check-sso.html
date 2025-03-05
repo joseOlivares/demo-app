@@ -1,3 +1,5 @@
+<!-- public/silent-check-sso.html -->
+<!-- 
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,5 +11,13 @@
   </head>
   <body>
     <app-root></app-root>
+  </body>
+</html>
+-->
+<html>
+  <body>
+    <script>
+      parent.postMessage(location.href, location.origin);
+    </script>
   </body>
 </html>
