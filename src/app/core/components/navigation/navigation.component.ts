@@ -23,7 +23,7 @@ export class NavigationComponent {
   isAuthenticated = false;
   keycloakStatus: string | undefined;
 
-  protected userProfile:UserProfile = {id:'',emailVerified:false,username:'Anonymous',email:'',firstName:'',lastName:''};
+  protected userProfile:UserProfile = {id:'',emailVerified:false,username:'User',email:'',firstName:'',lastName:''};
 
 
    constructor() {
@@ -49,7 +49,7 @@ export class NavigationComponent {
    }
 
 
-   async getUserProfile() { 
+   async getUserProfile() {
     if (this.keycloak?.authenticated) {
       const profile =  await this.keycloak.loadUserProfile();
 
@@ -59,8 +59,8 @@ export class NavigationComponent {
       this.userProfile.email = profile.email ?? '';
       this.userProfile.firstName = profile.firstName ?? '';
       this.userProfile.lastName = profile.lastName ?? '';
-      console.log('Navigation- User profile: ', profile); 
-    } 
+      console.log('Navigation- User profile: ', profile);
+    }
    }
 
    logout(){

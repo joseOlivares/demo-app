@@ -35,7 +35,7 @@ export class CreateCustomerComponent {
 
 
   @ViewChild('toastComponent') toastComponent!: ToastComponent;
-  
+
 
   createCustomer(){
     if(this.formCustomer.invalid){
@@ -78,4 +78,4 @@ export class CreateCustomerComponent {
     }
 
 }
-  
+

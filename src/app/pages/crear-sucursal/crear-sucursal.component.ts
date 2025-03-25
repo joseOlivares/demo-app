@@ -62,6 +62,7 @@ export class CrearSucursalComponent {
           this.toastDuration=3000;
           this.toastTextBg='text-bg-danger';
           this.showToast();
+          this.formSucursal.reset();
           // Handle the error, e.g., show an error message to the user
       }
   });

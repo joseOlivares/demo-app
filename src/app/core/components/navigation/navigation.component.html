@@ -18,17 +18,27 @@
           <!-- Add more menu items as needed -->
         </ul>
         <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item dropdown">
+          @if (userProfile)
+          {
+            <li class="nav-item dropdown " >
+                  <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi bi-person-circle"></i> {{ userProfile.username }}
+                  </button>
 
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Separated link</a></li>
-            </ul>
-          </li>
+                  @if (isAuthenticated){
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <!-- <li><a class="dropdown-item" href="#">{{userProfile.firstName}} {{userProfile.lastName}}</a></li>
+                      <li><a class="dropdown-item" href="#">{{userProfile.email}}</a></li>
+                      <li><hr class="dropdown-divider"></li> -->
+                      <li><a class="dropdown-item btn" (click)="logout()">Logout</a></li>
+                    </ul>
+                   } @else {
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item btn" (click)="loging()">Login</a></li>
+                    </ul>
+                  }
+            </li>
+          }
 
         </ul>
       </div>
