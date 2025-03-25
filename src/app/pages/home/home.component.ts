@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 
 import Keycloak from 'keycloak-js';
 import {
@@ -8,10 +8,11 @@ import {
   typeEventArgs,
   ReadyArgs
 } from 'keycloak-angular';
+import { ToastComponent } from '../../core/components/toast/toast.component';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [ToastComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -21,6 +22,7 @@ export class HomeComponent {
   keycloakStatus: string | undefined;
   private readonly keycloak = inject(Keycloak);
   private readonly keycloakSignal = inject(KEYCLOAK_EVENT_SIGNAL);
+  showToast=signal(false);//controla si se muestra el toast
 
   constructor() {
     console.log('HomeComponent constructor');
@@ -74,5 +76,9 @@ export class HomeComponent {
  isAuthenticated() {
   console.log('Is authenticated: ', this.keycloak?.authenticated ?? false);
  }
+
+  callToast() {
+    this.showToast.set(true);
+  }
 
 }

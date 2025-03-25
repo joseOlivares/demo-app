@@ -4,19 +4,21 @@ import { environment } from '../../../environments/environment';
 import { Customer } from '../../types/customer';
 import { FormGroup } from '@angular/forms';
 
+/**
+ * No se utiliza
+ */
+
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
   private http=inject(HttpClient);
-  private customersApi=environment.customersApi;
-  
+  private customersApi=environment.url;
+
 
   constructor() { }
 
-
-   
   getCustomers(){
     return this.http.get<Customer[]>(this.customersApi);
   }

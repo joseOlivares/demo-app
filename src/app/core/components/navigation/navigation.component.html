@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">MyApp</a>
+      <a class="navbar-brand" href="/home">MyApp</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,34 +10,26 @@
             <a class="nav-link" routerLink="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/view-customers">View Customers</a>
+            <a class="nav-link" routerLink="/sucursales">Ver sucursales</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/create-customer">Create Customer</a>
+            <a class="nav-link" routerLink="/crear-sucursal">Agregar sucursal</a>
           </li>
           <!-- Add more menu items as needed -->
         </ul>
         <ul class="navbar-nav mb-2 mb-lg-0">
-            @if (userProfile){
-                <li class="nav-item dropdown " >
-                    <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-person-circle"></i> {{ userProfile.username }}
-                    </button>
-                    @if (isAuthenticated){
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <!-- <li><a class="dropdown-item" href="#">{{userProfile.firstName}} {{userProfile.lastName}}</a></li>
-                        <li><a class="dropdown-item" href="#">{{userProfile.email}}</a></li>
-                        <li><hr class="dropdown-divider"></li> -->
-                        <li><a class="dropdown-item btn" (click)="logout()">Logout</a></li>
-                      </ul>         
-                    }@else{
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item btn" (click)="loging()">Login</a></li>
-                      </ul> 
-                    }
+          <li class="nav-item dropdown">
 
-                </li>   
-            }
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </li>
+
         </ul>
       </div>
     </div>

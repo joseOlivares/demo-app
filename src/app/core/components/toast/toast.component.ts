@@ -1,4 +1,4 @@
-import { Component, effect, input } from '@angular/core';
+import { Component,effect, input, model, output } from '@angular/core';
 import { Toast } from 'bootstrap'; // Importa Toast de Bootstrap
 //Fue necesario instalar los types de boostrap npm install --save-dev @types/bootstrap
 @Component({
@@ -16,14 +16,23 @@ export class ToastComponent {
   textBg=input('');
 
 
+   
+  //nos permite enviar y recibir datos entre padre e hijo
+  showToast=model(false); //two ways data binding
 
 
 
-
-  //isVisible=input(false);
+   
 
   constructor() {
+    effect(()=>{
 
+      console.log('showToast: ', this.showToast());
+      if(this.showToast()){
+        this.show();
+      } 
+  
+    });
   }
 
 
@@ -32,6 +41,7 @@ export class ToastComponent {
     if (toastElement) {
       const toast = new Toast(toastElement); // Crea una instancia de Toast
       toast.show(); // Muestra el Toast
+      this.showToast.set(false);
     }
   }
 

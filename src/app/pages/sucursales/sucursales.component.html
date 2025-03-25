@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <h2>Sucursales</h2>
+<div class="row mt-2">
+  <div class="col-12">
+      @if (sucursales.length > 0){
+          <table class="table">
+              <thead>
+              <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Dirección</th>
+                  <th scope="col">Estado/Provincia</th>
+                  <th scope="col">Pais</th>
+                  <th scope="col">Horario</th>
+              </tr>
+              </thead>
+              <tbody>
+              @for (sucursal of sucursales; track $index; let i=$index ){
+                  <tr>
+                      <th scope="row">{{i+1}}</th>
+                      <td>{{sucursal.nombre}}</td>
+                      <td>{{sucursal.direccion}}</td>
+                      <td>{{sucursal.estadoOProvincia}}</td>
+                      <td>{{sucursal.pais}}</td>
+                      <td>{{sucursal.horario}}</td>
+                  </tr>
+              }
+              </tbody>
+        </table>
+      }@else{
+          <div class="d-flex justify-content-center mt-5">
+              <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+              </div>
+          </div>
+      }
+  </div>
+</div>
+</div>

@@ -6,12 +6,12 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
   },
   {
-    path: 'create-customer',
-    loadComponent: () => import('./pages/create-customer/create-customer.component').then(m => m.CreateCustomerComponent)
+    path: 'sucursales',
+    loadComponent: () => import('./pages/sucursales/sucursales.component').then(m => m.SucursalesComponent)
   },
   {
-    path: 'view-customers',
-    loadComponent: () => import('./pages/view-customers/view-customers.component').then(m => m.ViewCustomersComponent)
+    path: 'crear-sucursal',
+    loadComponent: () => import('./pages/crear-sucursal/crear-sucursal.component').then(m => m.CrearSucursalComponent)
   },
   {
     path: 'login',

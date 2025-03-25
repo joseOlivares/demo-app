@@ -3,6 +3,9 @@ import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 
+/**
+ * No se utiliza
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +13,7 @@ export class LoginService {
   private loginApi = environment.loginApi;
   private grantType = environment.grantType;
 
-  private http=inject(HttpClient) 
+  private http=inject(HttpClient)
 
   constructor() { }
 
@@ -18,7 +21,7 @@ export class LoginService {
   authenticate(loginForm: FormGroup) {
     loginForm.controls['grant_type'].setValue(this.grantType);
     console.log('LoginService: authenticate',loginForm.value);
-    
+
 
 
       //const secrets=`${environment.secretUser}:${environment.secretPassword}`;

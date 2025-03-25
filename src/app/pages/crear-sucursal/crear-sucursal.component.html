@@ -1,0 +1,91 @@
+
+<div class="container mt-5 ">
+  <div class="pb-5">
+    <h2 class="mb-3">Crear nueva sucursal</h2>
+    <form [formGroup]="formSucursal" class="form-customer">
+      <!-- Campo nombre sucursal -->
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre">
+        @if(formSucursal.get('nombre')?.invalid && formSucursal.get('nombre')?.touched){
+          <div class="text-danger">
+            El nombre de la sucursal es obligatorio.
+          </div>
+        }
+      </div>
+
+      <!-- Campo Direccion -->
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Dirección</label>
+        <input type="text" class="form-control" id="direccion" formControlName="direccion">
+        @if(formSucursal.get('direccion')?.invalid && formSucursal.get('direccion')?.touched){
+          <div class="text-danger">
+            La dirección es obligatoria.
+          </div>
+        }
+      </div>
+
+      <!-- Campo Estado -->
+      <div class="mb-3">
+        <label for="estadoOProvincia" class="form-label">Estado o Provincia</label>
+        <input type="text" class="form-control" id="" formControlName="estadoOProvincia">
+        @if(formSucursal.get('estadoOProvincia')?.invalid && formSucursal.get('estadoOProvincia')?.touched){
+          <div class="text-danger">
+            Este campo es obligatorio.
+          </div>
+        }
+      </div>
+
+
+      <!-- Campo Telefono -->
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="telefono" formControlName="telefono">
+        @if(formSucursal.get('telefono')?.invalid && formSucursal.get('telefono')?.touched){
+          <div class="text-danger">
+            El número de teléfono es obligatoria.
+          </div>
+        }
+      </div>
+      <!-- Campo País -->
+      <div class="mb-3">
+        <label for="pais" class="form-label">País</label>
+        <select class="form-select" aria-label="Select Pais" id="pais" formControlName="pais">
+          <option selected>Elija un país</option>
+          <option value="CR">Costa Rica</option>
+          <option value="SV">El Salvador</option>
+          <option value="GT">Guatemala</option>
+          <option value="HN">Honduras</option>
+          <option value="NI">Nicaragua</option>
+          <option value="PA">Panamá</option>
+        </select>
+        @if(formSucursal.get('pais')?.invalid && formSucursal.get('pais')?.touched){
+          <div class="text-danger">
+            El país es obligatorio.
+          </div>
+        }
+      </div>
+      <!-- Campo horario -->
+      <div class="mb-3">
+        <label for="horario" class="form-label">Horario</label>
+        <input type="text" class="form-control" id="horario" formControlName="horario">
+        @if(formSucursal.get('horario')?.invalid && formSucursal.get('horario')?.touched){
+          <div class="text-danger">
+            El horario es obligatorio.
+          </div>
+        }
+      </div>
+
+
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <!-- Botón de Enviar -->
+        <button type="button " class="btn btn-primary px-md-5 btn-lg" [disabled]="formSucursal.invalid" (click)="crearSucursal()">Crear</button>
+      </div>
+
+
+    </form>
+  </div>
+   <app-toast #toastComponent [title]="toastTitle" [message]="toastMessage" [timeAgo]="toastTimeAgo" [duration]="toastDuration"
+    [textBg]="toastTextBg"></app-toast>
+</div>
