@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import Keycloak from 'keycloak-js';
 import {
@@ -20,10 +20,10 @@ export class NavigationComponent {
 
   private readonly keycloak = inject(Keycloak);
   private readonly keycloakSignal = inject(KEYCLOAK_EVENT_SIGNAL);
-  isAuthenticated = false;
+  isAuthenticated =false;
   keycloakStatus: string | undefined;
 
-  protected userProfile:UserProfile = {id:'',emailVerified:false,username:'User',email:'',firstName:'',lastName:''};
+  protected userProfile:UserProfile = {id:'',emailVerified:false,username:'Login',email:'',firstName:'',lastName:''};
 
 
    constructor() {
@@ -55,7 +55,7 @@ export class NavigationComponent {
 
       this.userProfile.id = profile.id ?? '';
       this.userProfile.emailVerified = profile.emailVerified ?? false;
-      this.userProfile.username = profile.username ?? 'Anonymous';
+      this.userProfile.username = profile.username ?? 'Unknown';
       this.userProfile.email = profile.email ?? '';
       this.userProfile.firstName = profile.firstName ?? '';
       this.userProfile.lastName = profile.lastName ?? '';

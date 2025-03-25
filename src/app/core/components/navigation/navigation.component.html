@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="/home">MyApp</a>
+      <a class="navbar-brand" href="/home">DigitalBussiness</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,7 +22,12 @@
           {
             <li class="nav-item dropdown " >
                   <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <i class="bi bi-person-circle"></i> {{ userProfile.username }}
+                    @if(isAuthenticated){
+                      <i class="bi bi-person-circle"></i>
+                    }@else {
+                      <i class="bi bi-box-arrow-in-right"></i>
+                    }
+                     {{ userProfile.username }}
                   </button>
 
                   @if (isAuthenticated){
