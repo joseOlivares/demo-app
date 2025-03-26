@@ -10,6 +10,8 @@ import {
 } from 'keycloak-angular';
 import { UserProfile } from '../../../types/user-profile';
 
+import * as bootstrap from 'bootstrap'; //para resolver problema del carga del dropbdown con keycloak
+
 @Component({
   selector: 'app-navigation',
   imports: [RouterLink],
@@ -45,6 +47,7 @@ export class NavigationComponent {
       }
 
       this.getUserProfile();
+      this.initDropdowns(); // Inicializar dropdowns después de cargar Keycloak
     });
    }
 
@@ -65,12 +68,23 @@ export class NavigationComponent {
 
    logout(){
     this.keycloak.logout();
+    this.initDropdowns(); // Reinicializar Bootstrap después del logout
    }
 
    loging(){
     this.keycloak.login();
    }
 
+   ngAfterViewInit() {
+    this.initDropdowns(); // Asegurar inicialización en caso de cambios en el DOM
+  }
 
-
+  initDropdowns() {
+    setTimeout(() => {
+      const dropdowns = document.querySelectorAll('.dropdown-toggle');
+      dropdowns.forEach((dropdown) => {
+        new bootstrap.Dropdown(dropdown);
+      });
+    }, 100);
+  }
 }
