@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { privateGuard } from './core/guards/private.guard';
 
 export const routes: Routes = [
   {
@@ -11,7 +12,9 @@ export const routes: Routes = [
   },
   {
     path: 'crear-sucursal',
-    loadComponent: () => import('./pages/crear-sucursal/crear-sucursal.component').then(m => m.CrearSucursalComponent)
+    loadComponent: () => import('./pages/crear-sucursal/crear-sucursal.component').then(m => m.CrearSucursalComponent),
+    canActivate: [privateGuard]
+
   },
   {
     path: 'login',

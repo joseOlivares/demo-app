@@ -52,6 +52,7 @@ export class CrearSucursalComponent {
           this.toastTextBg='text-bg-success';
           this.showToast();
           // Handle successful creation, e.g., navigate or show a success message
+          this.formSucursal.reset();
       },
       error: (error) => {
           console.error('Error creating customer:', error);

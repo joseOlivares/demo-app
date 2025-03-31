@@ -9,12 +9,14 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/sucursales">Ver sucursales</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/crear-sucursal">Agregar sucursal</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/sucursales">Ver sucursales</a>
+            </li>
+            @if (isAuthenticated) {
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/crear-sucursal">Agregar sucursal</a>
+              </li>
+            }
           <!-- Add more menu items as needed -->
         </ul>
         <ul class="navbar-nav mb-2 mb-lg-0">
@@ -35,7 +37,7 @@
                       <!-- <li><a class="dropdown-item" href="#">{{userProfile.firstName}} {{userProfile.lastName}}</a></li>
                       <li><a class="dropdown-item" href="#">{{userProfile.email}}</a></li>
                       <li><hr class="dropdown-divider"></li> -->
-                      <li><a class="dropdown-item btn" (click)="logout()">Logout</a></li>
+                      <li><a class="dropdown-item btn" (click)="logout()"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
                     </ul>
                    } @else {
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
